@@ -1,13 +1,80 @@
 body {
   margin: 0;
+  /* color: rgb(155, 184, 209); */
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+
+  background-color:black;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.Intro{
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.person-name{
+  color: rgb(155, 184, 209);
+}
+
+.Intro{
+  color:cadetblue;
+  /* display: flex; */
+  text-align: center;
+}
+
+.person-box{
+  display:flex;
+  flex-wrap: wrap;
+}
+
+.person{
+  flex: 0 0 33%;
+  background-color: black;
+}
+
+.person-image-box{
+  padding: 10px;
+  margin:auto;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  position: center;
+  overflow: hidden;
+  align-items: flex-end
+;
+
+
+}
+.person-image{
+
+  height: 200px;
+  width: 200px;
+  object-fit: cover;
+  border-radius: 50%;
+  align-self:flex-end
+
+}
+
+button{
+  display:inline-block;
+  padding:0.3em 1em;
+  border:0.16em solid #FFFFFF;
+  margin:0 0.3em 0.3em 0;
+  box-sizing: border-box;
+  text-decoration:none;
+  text-transform:uppercase;
+  font-family:'Roboto',sans-serif;
+  font-weight:400;
+  color:black;
+  text-align:center;
+  transition: all 0.15s;
+
 }
