@@ -106,8 +106,8 @@ export default class Main extends React.Component {
   }
 
   render() {
-    console.log(this.state.person)
     return (
+
       <div>
        { this.state.showQuote === false ?
       <div className="Select">
