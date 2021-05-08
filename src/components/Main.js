@@ -111,7 +111,7 @@ export default class Main extends React.Component {
       <div>
        { this.state.showQuote === false ?
       <div className="Select">
-        <h3>Select a Character</h3>
+        <h3 className="select-text">Select a Character</h3>
       </div> :
       <div className="Character Name">
         <h3> {this.state.person} GIFs </h3>
