@@ -3,7 +3,9 @@ import Person from "./Person";
 import Quote from "./Quote";
 import axios from 'axios';
 
-const fakeData = [
+let api = `${process.env.GIPHY_API_KEY}`
+
+const characterData = [
   {
     name: "Leslie Knope",
     imageUrl:
@@ -66,7 +68,7 @@ export default class Main extends React.Component {
   }
   componentDidMount() {
     // call your endpoint and get the data
-    this.setState({ persons: fakeData });
+    this.setState({ persons: characterData });
   }
 
   getRandomArbitrary(min, max) {
