@@ -42,14 +42,16 @@ Before you get started make sure you have the following software installed
 
 2. Clone the repo
 
-  >git clone  https://github.com/dprajapati4/parks-n-recs-gif-app.git
+  >git clone  https://github.com/dprajapati4/code_brew.git
 
 3. Install NPM packages
   >npm install
 
 4. Enter your API Key
 
->const API_KEY = 'ENTER YOUR API';
+>const YELP_API_KEY = 'ENTER YOUR API' ;
+
+>const Twillio_API_KEY = 'ENTER YOUR API';
 
 5. Run the app on your local enviorment and have fun
   >npm start
@@ -69,3 +71,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 [LinkedIn](https://www.linkedin.com/in/deepprajapati)
 
 [Github](https://github.com/dprajapati4/parks-n-recs-gif-app)
+
+## **Shameless Plug**
+***
+Check out my [medium article](https://dprajap2.medium.com/so-you-want-to-use-an-api-e291ce1b7949) on using third party API's
