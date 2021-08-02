@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import Person from "./Person";
 import Quote from "./Quote";
 import axios from 'axios';
@@ -52,30 +52,44 @@ const characterData = [
   },
 ];
 
-export default class Main extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      persons: [],
-      showQuote: false,
-      quote: "",
-      person: "",
-      gif:{}
-    };
-    this.renderQuote = this.renderQuote.bind(this);
-    this.clearQuote = this.clearQuote.bind(this);
-    this.fetchNewQuote = this.fetchNewQuote.bind(this);
-  }
-  componentDidMount() {
-    // call your endpoint and get the data
-    this.setState({ persons: characterData });
-  }
+// export default class Main extends React.Component {
+//   constructor() {
+//     super();
+//     this.state = {
+//       persons: [],
+//       showQuote: false,
+//       quote: "",
+//       person: "",
+//       gif:{}
+//     };
+
+
+// this.renderQuote = this.renderQuote.bind(this);
+// this.clearQuote = this.clearQuote.bind(this);
+// this.fetchNewQuote = this.fetchNewQuote.bind(this);
+
+function Main (props) {
+
+  const [persons, setPersons] = useState([]);
+  const [showQuote, setShowQuote] = useState(false);
+  const [quote, setQuote] = useState("");
+  const [person, setPerson] = useState("");
+  const [gif, setGif] = useState({});
+
+  useEffect(() => {
+    
+  })
+
+  // componentDidMount() {
+
+  //   this.setState({ persons: characterData });
+  // }
 
   getRandomArbitrary(min, max) {
     return Math.floor((Math.random() * (max - min) + min));
   }
 
- async fetchGif(name){
+  async fetchGif(name){
    const randomNum = this.getRandomArbitrary(0, 50);
       try {
         const res = await axios.get(`https://api.giphy.com/v1/gifs/search?q=${name}&api_key=ssybGkMQFiB9xaw8vWxQmksYZFjEbEeB&rating=pg`);
@@ -107,7 +121,6 @@ export default class Main extends React.Component {
     this.fetchGif(name);
   }
 
-  render() {
     return (
 
       <div>
@@ -143,5 +156,7 @@ export default class Main extends React.Component {
       </div>
       </div>
     );
-  }
+
 }
+
+export default Main;
