@@ -113,11 +113,11 @@ function Main (props) {
       <div className="container">
         {showQuote ? (
           <Quote
-            quote={quote}
             gif={gif}
-            person={person}
             clearQuote={clearQuote}
             fetchNewQuote={fetchNewQuote}
+            person={person}
+            quote={quote}
           />
         ) : (
           <div className="person-box">
