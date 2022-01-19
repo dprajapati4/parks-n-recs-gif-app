@@ -52,22 +52,6 @@ const characterData = [
   },
 ];
 
-// export default class Main extends React.Component {
-//   constructor() {
-//     super();
-//     this.state = {
-//       persons: [],
-//       showQuote: false,
-//       quote: "",
-//       person: "",
-//       gif:{}
-//     };
-
-
-// this.renderQuote = this.renderQuote.bind(this);
-// this.clearQuote = this.clearQuote.bind(this);
-// this.fetchNewQuote = this.fetchNewQuote.bind(this);
-
 function Main (props) {
 
   const [persons, setPersons] = useState([]);
@@ -77,78 +61,73 @@ function Main (props) {
   const [gif, setGif] = useState({});
 
   useEffect(() => {
-    
-  })
+    setPersons(characterData)
+  }, [])
 
-  // componentDidMount() {
-
-  //   this.setState({ persons: characterData });
-  // }
-
-  getRandomArbitrary(min, max) {
-    return Math.floor((Math.random() * (max - min) + min));
+  function getRandomArbitrary(min, max){
+    return Math.floor((Math.random() * (max - min) + min))
   }
 
-  async fetchGif(name){
-   const randomNum = this.getRandomArbitrary(0, 50);
+  async function fetchGif(name){
+   const randomNum = getRandomArbitrary(0, 50);
       try {
         const res = await axios.get(`https://api.giphy.com/v1/gifs/search?q=${name}&api_key=ssybGkMQFiB9xaw8vWxQmksYZFjEbEeB&rating=pg`);
         if(res){
           const availableGifs = res.data.data;
           const  gif = availableGifs[randomNum];
-          this.setState({
-            showQuote: true,
-            person: name,
-            gif
-          });
+          setShowQuote(true);
+          setPerson(name);
+          setGif(gif)
         }
       } catch (error) {
 
       }
   }
 
-  async renderQuote(event, name) {
+  async function renderQuote(event, name) {
     event.preventDefault();
-     this.fetchGif(name);
+     fetchGif(name);
   }
 
-  clearQuote(event) {
+  function clearQuote(event) {
     event.preventDefault();
-    this.setState({ showQuote: false, person: "", quote: "" });
+    setShowQuote(false);
+    setPerson("");
+    setQuote("");
   }
-  fetchNewQuote(event, name) {
+  function fetchNewQuote(event, name) {
     event.preventDefault();
-    this.fetchGif(name);
+    fetchGif(name);
   }
 
     return (
 
       <div>
-       { this.state.showQuote === false ?
+       { showQuote === false ?
       <div className="Select">
         <h3 className="select-text">Select a Character</h3>
       </div> :
       <div className="Character Name">
-        <h3> {this.state.person} GIFs </h3>
+        <h3> {person} GIFs </h3>
       </div>}
       <div className="container">
-        {this.state.showQuote ? (
+        {showQuote ? (
           <Quote
-            quote={this.state.quote}
-            gif={this.state.gif}
-            person={this.state.person}
-            clearQuote={this.clearQuote}
-            fetchNewQuote={this.fetchNewQuote}
+            quote={quote}
+            gif={gif}
+            person={person}
+            clearQuote={clearQuote}
+            fetchNewQuote={fetchNewQuote}
           />
         ) : (
           <div className="person-box">
-            {this.state.persons.map((person) => (
+            {persons.map((person) => (
               <Person
                 name={person.name}
                 key={person.name}
                 imageUrl={person.imageUrl}
-                quote={this.state.quote}
-                renderQuote={this.renderQuote}
+                quote={quote}
+                renderQuote={renderQuote}
               />
             ))}
           </div>
