@@ -1,4 +1,5 @@
 const Person = (props) => {
+
   return (
     <div className="person" onClick={(event)=> props.renderQuote(event, props.name)}>
       <div className="person-image-box">
